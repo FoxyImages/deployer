@@ -16,7 +16,6 @@ cp /build/config/supervisor.conf /etc/supervisor/conf.d/deployer.conf
 
 cd /var/www
 chown www-data:root .
-curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 composer create-project rebelinblue/deployer deployer --no-dev
 
 cd /var/www/deployer
