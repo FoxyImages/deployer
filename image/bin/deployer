@@ -14,9 +14,6 @@ JWT_SECRET=${JWT_SECRET:-`php /var/www/deployer/artisan jwt:generate --show`}
 
 SOCKET_URL=${SOCKET_URL:-http://localhost}
 SOCKET_PORT=${SOCKET_PORT:-6001}
-SOCKET_SSL_KEY_FILE=${SOCKET_SSL_KEY_FILE:-null}
-SOCKET_SSL_CERT_FILE=${SOCKET_SSL_CERT_FILE:-null}
-SOCKET_SSL_CA_FILE=${SOCKET_SSL_CA_FILE:-null}
 
 DB_TYPE=${DB_TYPE:-mysql}
 DB_HOST=${DB_HOST:-localhost}
@@ -61,9 +58,6 @@ sed 's,{{JWT_SECRET}},'"${JWT_SECRET}"',g' -i /var/www/deployer/.env
 
 sed 's,{{SOCKET_URL}},'"${SOCKET_URL}"',g' -i /var/www/deployer/.env
 sed 's,{{SOCKET_PORT}},'"${SOCKET_PORT}"',g' -i /var/www/deployer/.env
-sed 's,{{SOCKET_SSL_KEY_FILE}},'"${SOCKET_SSL_KEY_FILE}"',g' -i /var/www/deployer/.env
-sed 's,{{SOCKET_SSL_CERT_FILE}},'"${SOCKET_SSL_CERT_FILE}"',g' -i /var/www/deployer/.env
-sed 's,{{SOCKET_SSL_CA_FILE}},'"${SOCKET_SSL_CA_FILE}"',g' -i /var/www/deployer/.env
 
 sed 's,{{DB_TYPE}},'"${DB_TYPE}"',g' -i /var/www/deployer/.env
 sed 's,{{DB_HOST}},'"${DB_HOST}"',g' -i /var/www/deployer/.env

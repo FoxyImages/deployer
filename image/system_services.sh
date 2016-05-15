@@ -5,8 +5,8 @@ set -x
 
 $minimal_apt_get_install beanstalkd redis-server npm nodejs nodejs-legacy git rsync supervisor
 
-sed -i -e "s/daemonize\s*=\s*yes/daemonize = no/g" /etc/redis/redis.conf
-sed -i -e "s/logfile\s*=.*/logfile = \/dev\/stdout/g" /etc/redis/redis.conf
+sed "s,daemonize\s*=\s*yes,daemonize = no,g" -i /etc/redis/redis.conf
+sed "s,logfile\s*=.*,logfile = /dev/stdout,g" -i /etc/redis/redis.conf
 
 mkdir /var/www/.ssh
 ssh-keyscan -t rsa bitbucket.org >> /var/www/.ssh/known_hosts
@@ -24,6 +24,7 @@ chmod -R 777 bootstrap/cache
 chmod -R 777 public/upload
 chmod -R 777 storage
 npm install --production
+sed "s,var app = require('https').*;,var app = require('http').createServer(handler);,g" -i socket.js
 echo "* * * * * php /var/www/deployer/artisan schedule:run 1>> /dev/null 2>&1" >> /etc/crontab
 
 rm /etc/nginx/sites.d/default
