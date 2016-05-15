@@ -93,11 +93,4 @@ sed 's,{{IMAGE_DRIVER}},'"${IMAGE_DRIVER}"',g' -i /var/www/deployer/.env
 sed 's,{{TRUSTED_PROXIES}},'"${TRUSTED_PROXIES}"',g' -i /var/www/deployer/.env
 sed 's,{{GITHUB_OAUTH_TOKEN}},'"${GITHUB_OAUTH_TOKEN}"',g' -i /var/www/deployer/.env
 
-cd /var/www/deployer
-php artisan optimize
-php artisan js-localization:refresh
-php artisan migrate --force
-
-chown -R www-data:root .
-
 /sbin/my_init

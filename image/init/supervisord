@@ -1,2 +1,8 @@
 #!/bin/sh
-exec /usr/bin/supervisord -n -l /dev/null -e critical
+
+cd /var/www/deployer
+/sbin/setuser www-data php artisan optimize
+/sbin/setuser www-data php artisan js-localization:refresh
+/sbin/setuser www-data php artisan migrate --force
+
+exec /usr/bin/supervisord -c /etc/supervisor/supervisord.conf -n -l /dev/null -e critical
