@@ -24,3 +24,5 @@ deployer:
     - "127.0.0.1:8091:80"
 
 ```
+
+Default user after installation is `admin@example.com` and password is `password`.
