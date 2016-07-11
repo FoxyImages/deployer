@@ -1,5 +1,5 @@
 NAME = sunfoxcz/deployer
-VERSION = 0.1.1
+VERSION = 0.1.2
 
 .PHONY: all build tag_latest release
 
