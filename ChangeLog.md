@@ -1,3 +1,7 @@
+## 0.1.3 (release date: 30.11.2016)
+
+* Updated Deployer to latest version
+
 ## 0.1.2 (release date: 11.07.2016)
 
  * Removed depracated apt speedup
