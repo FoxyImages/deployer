@@ -2,6 +2,7 @@
 
  * Fixed socket connection to Redis
  * Use redis from separated container
+ * Removed socket.io from nginx config
 
 ## 0.1.3 (release date: 30.11.2016)
 
