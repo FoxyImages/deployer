@@ -1,6 +1,11 @@
+## 0.1.4 (release date: 17.12.2016)
+
+ * Fixed socket connection to Redis
+ * Use redis from separated container
+
 ## 0.1.3 (release date: 30.11.2016)
 
-* Updated Deployer to latest version
+ * Updated Deployer to latest version
 
 ## 0.1.2 (release date: 11.07.2016)
 

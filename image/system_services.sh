@@ -3,10 +3,7 @@ set -e
 source /build/buildconfig
 set -x
 
-$minimal_apt_get_install beanstalkd redis-server npm nodejs nodejs-legacy git rsync supervisor
-
-sed "s,daemonize\s*=\s*yes,daemonize = no,g" -i /etc/redis/redis.conf
-sed "s,logfile\s*=.*,logfile = /dev/stdout,g" -i /etc/redis/redis.conf
+$minimal_apt_get_install beanstalkd npm nodejs nodejs-legacy git rsync supervisor
 
 mkdir /var/www/.ssh
 ssh-keyscan -t rsa bitbucket.org >> /var/www/.ssh/known_hosts
@@ -33,9 +30,7 @@ rm /etc/php/7.0/fpm/pool.d/www.conf
 cp /build/config/php-pool.conf /etc/php/7.0/fpm/pool.d/deployer.conf
 
 mkdir /etc/service/beanstalkd
-mkdir /etc/service/redis-server
 mkdir /etc/service/supervisord
 cp /build/init/beanstalkd /etc/service/beanstalkd/run
-cp /build/init/redis-server /etc/service/redis-server/run
 cp /build/init/supervisord /etc/service/supervisord/run
 cp /build/bin/deployer /usr/local/bin/deployer

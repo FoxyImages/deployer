@@ -8,7 +8,7 @@ written & maintained by Stephen Ball.
 ```yml
 deployer:
   container_name: deployer
-  image: sunfoxcz/deployer:0.1.1
+  image: sunfoxcz/deployer:0.1.4
   environment:
     - TZ=Europe/Prague
     - APP_DEBUG=true
@@ -18,6 +18,9 @@ deployer:
     - APP_TIMEZONE=Europe/Prague
     - JWT_SECRET=xxx
     - SOCKET_URL=https://deployer.domain.tld
+    - REDIS_HOST=redis
+    - REDIS_PORT=6379
+    - REDIS_DATABASE=0
     - DB_TYPE=mysql
     - DB_HOST=mysql.domain.tld
     - DB_DATABASE=deployer
@@ -26,7 +29,12 @@ deployer:
     - MAIL_FROM_ADDRESS=deployer@domain.tld
   ports:
     - "127.0.0.1:8091:80"
-
+  links:
+    - redis
+redis:
+  container_name: deployer-redis
+  image: redis:latest
+  restart: always
 ```
 
 Env variables `APP_KEY` and `JWT_SECRET` will be generated if not given.
