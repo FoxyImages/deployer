@@ -18,7 +18,9 @@ composer create-project rebelinblue/deployer deployer --no-dev
 cd /var/www/deployer
 cp /build/config/deployer.env .env
 chmod -R 777 bootstrap/cache
-chmod -R 777 public/upload
+chmod -R 777 storage/app/mirrors
+chmod -R 777 storage/app/public
+chmod -R 777 storage/app/tmp
 chmod -R 777 storage
 npm install --production
 sed "s,var app = require('https').*;,var app = require('http').createServer(handler);,g" -i socket.js

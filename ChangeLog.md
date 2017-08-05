@@ -1,3 +1,7 @@
+## 0.1.5 (release date: 05.08.2017)
+
+ * Fixed chown for Deployer's new directory structure
+
 ## 0.1.4 (release date: 17.12.2016)
 
  * Fixed socket connection to Redis
