@@ -1,2 +1,2 @@
 #!/bin/sh
-exec /usr/bin/beanstalkd -u nobody
+exec /usr/bin/beanstalkd -u nobody -z 524280

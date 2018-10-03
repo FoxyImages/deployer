@@ -1,3 +1,7 @@
+## 0.1.6 (release date: 03.10.2018)
+
+ * Increased beanstalkd MAX_JOB_SIZE to 524280
+
 ## 0.1.5 (release date: 05.08.2017)
 
  * Fixed chown for Deployer's new directory structure
